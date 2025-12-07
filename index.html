@@ -1,0 +1,1786 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-CA style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal>&lt;!DOCTYPE html&gt;</p>
+
+<p class=MsoNormal>&lt;html lang=&quot;en&quot;&gt;</p>
+
+<p class=MsoNormal>&lt;head&gt;</p>
+
+<p class=MsoNormal>  &lt;meta charset=&quot;UTF-8&quot; /&gt;</p>
+
+<p class=MsoNormal>  &lt;title&gt;Gowtham Katari · MLOps Platform
+Engineer&lt;/title&gt;</p>
+
+<p class=MsoNormal>  &lt;meta name=&quot;viewport&quot;
+content=&quot;width=device-width, initial-scale=1&quot; /&gt;</p>
+
+<p class=MsoNormal>  &lt;style&gt;</p>
+
+<p class=MsoNormal>    :root {</p>
+
+<p class=MsoNormal>      --bg: #020617;</p>
+
+<p class=MsoNormal>      --bg-alt: #020617;</p>
+
+<p class=MsoNormal>      --glass: rgba(15,23,42,0.88);</p>
+
+<p class=MsoNormal>      --card: rgba(15,23,42,0.96);</p>
+
+<p class=MsoNormal>      --accent: #38bdf8;</p>
+
+<p class=MsoNormal>      --accent2: #a855f7;</p>
+
+<p class=MsoNormal>      --accent-soft: rgba(56,189,248,0.16);</p>
+
+<p class=MsoNormal>      --text: #e5e7eb;</p>
+
+<p class=MsoNormal>      --muted: #9ca3af;</p>
+
+<p class=MsoNormal>      --border: rgba(148,163,184,0.4);</p>
+
+<p class=MsoNormal>      --radius-lg: 22px;</p>
+
+<p class=MsoNormal>      --radius-md: 14px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    * { box-sizing: border-box; }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    html, body {</p>
+
+<p class=MsoNormal>      margin: 0;</p>
+
+<p class=MsoNormal>      padding: 0;</p>
+
+<p class=MsoNormal>      scroll-behavior: smooth;</p>
+
+<p class=MsoNormal>      background: radial-gradient(circle at top, #0f172a 0,
+#020617 55%);</p>
+
+<p class=MsoNormal>      color: var(--text);</p>
+
+<p class=MsoNormal>      font-family: system-ui, -apple-system,
+BlinkMacSystemFont, &quot;SF Pro Text&quot;,</p>
+
+<p class=MsoNormal>                   &quot;Segoe UI&quot;, sans-serif;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    body {</p>
+
+<p class=MsoNormal>      overflow-x: hidden;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    /* Background orbs / grid */</p>
+
+<p class=MsoNormal>    .bg-orb {</p>
+
+<p class=MsoNormal>      position: fixed;</p>
+
+<p class=MsoNormal>      border-radius: 999px;</p>
+
+<p class=MsoNormal>      filter: blur(70px);</p>
+
+<p class=MsoNormal>      opacity: 0.7;</p>
+
+<p class=MsoNormal>      pointer-events: none;</p>
+
+<p class=MsoNormal>      z-index: -2;</p>
+
+<p class=MsoNormal>      mix-blend-mode: screen;</p>
+
+<p class=MsoNormal>      transition: transform 0.4s ease-out;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .bg-orb.a {</p>
+
+<p class=MsoNormal>      width: 420px; height: 420px;</p>
+
+<p class=MsoNormal>      background: radial-gradient(circle, #38bdf8,
+transparent 70%);</p>
+
+<p class=MsoNormal>      top: -80px; left: -60px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>    .bg-orb.b {</p>
+
+<p class=MsoNormal>      width: 520px; height: 520px;</p>
+
+<p class=MsoNormal>      background: radial-gradient(circle, #a855f7,
+transparent 70%);</p>
+
+<p class=MsoNormal>      top: 35%; right: -120px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>    .bg-orb.c {</p>
+
+<p class=MsoNormal>      width: 380px; height: 380px;</p>
+
+<p class=MsoNormal>      background: radial-gradient(circle, #22c55e,
+transparent 70%);</p>
+
+<p class=MsoNormal>      bottom: -120px; left: 20%;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .grid-lines {</p>
+
+<p class=MsoNormal>      position: fixed;</p>
+
+<p class=MsoNormal>      inset: 0;</p>
+
+<p class=MsoNormal>      background-image:</p>
+
+<p class=MsoNormal>        linear-gradient(rgba(31,41,55,0.35) 1px, transparent
+1px),</p>
+
+<p class=MsoNormal>        linear-gradient(90deg, rgba(31,41,55,0.35) 1px,
+transparent 1px);</p>
+
+<p class=MsoNormal>      background-size: 80px 80px;</p>
+
+<p class=MsoNormal>      opacity: 0.22;</p>
+
+<p class=MsoNormal>      mask-image: radial-gradient(circle at top, black,
+transparent 70%);</p>
+
+<p class=MsoNormal>      -webkit-mask-image: radial-gradient(circle at top,
+black, transparent 70%);</p>
+
+<p class=MsoNormal>      pointer-events: none;</p>
+
+<p class=MsoNormal>      z-index: -3;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    /* Layout */</p>
+
+<p class=MsoNormal>    .page {</p>
+
+<p class=MsoNormal>      max-width: 1120px;</p>
+
+<p class=MsoNormal>      margin: 0 auto;</p>
+
+<p class=MsoNormal>      padding: 28px 16px 80px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    nav {</p>
+
+<p class=MsoNormal>      position: sticky;</p>
+
+<p class=MsoNormal>      top: 0;</p>
+
+<p class=MsoNormal>      z-index: 20;</p>
+
+<p class=MsoNormal>      backdrop-filter: blur(20px);</p>
+
+<p class=MsoNormal>      background: linear-gradient(to bottom,</p>
+
+<p class=MsoNormal>        rgba(2,6,23,0.9),</p>
+
+<p class=MsoNormal>        rgba(2,6,23,0.65),</p>
+
+<p class=MsoNormal>        transparent</p>
+
+<p class=MsoNormal>      );</p>
+
+<p class=MsoNormal>      border-bottom: 1px solid rgba(148,163,184,0.16);</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .nav-inner {</p>
+
+<p class=MsoNormal>      max-width: 1120px;</p>
+
+<p class=MsoNormal>      margin: 0 auto;</p>
+
+<p class=MsoNormal>      padding: 10px 16px;</p>
+
+<p class=MsoNormal>      display: flex;</p>
+
+<p class=MsoNormal>      align-items: center;</p>
+
+<p class=MsoNormal>      justify-content: space-between;</p>
+
+<p class=MsoNormal>      gap: 12px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .nav-brand {</p>
+
+<p class=MsoNormal>      font-weight: 700;</p>
+
+<p class=MsoNormal>      letter-spacing: 0.2em;</p>
+
+<p class=MsoNormal>      font-size: 0.9rem;</p>
+
+<p class=MsoNormal>      text-transform: uppercase;</p>
+
+<p class=MsoNormal>      color: var(--muted);</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .nav-links a {</p>
+
+<p class=MsoNormal>      font-size: 0.85rem;</p>
+
+<p class=MsoNormal>      text-transform: uppercase;</p>
+
+<p class=MsoNormal>      letter-spacing: 0.18em;</p>
+
+<p class=MsoNormal>      color: var(--muted);</p>
+
+<p class=MsoNormal>      text-decoration: none;</p>
+
+<p class=MsoNormal>      margin-left: 18px;</p>
+
+<p class=MsoNormal>      position: relative;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .nav-links a::after {</p>
+
+<p class=MsoNormal>      content: &quot;&quot;;</p>
+
+<p class=MsoNormal>      position: absolute;</p>
+
+<p class=MsoNormal>      left: 0; bottom: -4px;</p>
+
+<p class=MsoNormal>      width: 0; height: 2px;</p>
+
+<p class=MsoNormal>      background:
+linear-gradient(90deg,var(--accent),var(--accent2));</p>
+
+<p class=MsoNormal>      transition: width 0.25s ease-out;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>    .nav-links a:hover { color: var(--text); }</p>
+
+<p class=MsoNormal>    .nav-links a:hover::after { width: 100%; }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    header.hero {</p>
+
+<p class=MsoNormal>      display: grid;</p>
+
+<p class=MsoNormal>      grid-template-columns: minmax(0, 3fr) minmax(0,
+2.1fr);</p>
+
+<p class=MsoNormal>      gap: 24px;</p>
+
+<p class=MsoNormal>      padding-top: 26px;</p>
+
+<p class=MsoNormal>      padding-bottom: 24px;</p>
+
+<p class=MsoNormal>      align-items: center;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    @media (max-width: 880px) {</p>
+
+<p class=MsoNormal>      header.hero {</p>
+
+<p class=MsoNormal>        grid-template-columns: 1fr;</p>
+
+<p class=MsoNormal>        padding-top: 20px;</p>
+
+<p class=MsoNormal>      }</p>
+
+<p class=MsoNormal>      .nav-inner { justify-content: center; }</p>
+
+<p class=MsoNormal>      .nav-links { display: none; }</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .tagline {</p>
+
+<p class=MsoNormal>      display: inline-flex;</p>
+
+<p class=MsoNormal>      align-items: center;</p>
+
+<p class=MsoNormal>      gap: 6px;</p>
+
+<p class=MsoNormal>      padding: 4px 10px;</p>
+
+<p class=MsoNormal>      border-radius: 999px;</p>
+
+<p class=MsoNormal>      border: 1px solid rgba(148,163,184,0.55);</p>
+
+<p class=MsoNormal>      background: radial-gradient(circle at left,
+rgba(56,189,248,0.2), transparent 60%);</p>
+
+<p class=MsoNormal>      font-size: 0.75rem;</p>
+
+<p class=MsoNormal>      text-transform: uppercase;</p>
+
+<p class=MsoNormal>      letter-spacing: 0.14em;</p>
+
+<p class=MsoNormal>      color: var(--muted);</p>
+
+<p class=MsoNormal>      margin-bottom: 10px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .tag-dot {</p>
+
+<p class=MsoNormal>      width: 7px; height: 7px;</p>
+
+<p class=MsoNormal>      border-radius: 999px;</p>
+
+<p class=MsoNormal>      background: #22c55e;</p>
+
+<p class=MsoNormal>      box-shadow: 0 0 12px rgba(34,197,94,0.9);</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    h1.hero-title {</p>
+
+<p class=MsoNormal>      font-size: clamp(2.1rem, 3vw, 2.55rem);</p>
+
+<p class=MsoNormal>      margin: 0 0 8px;</p>
+
+<p class=MsoNormal>      letter-spacing: 0.04em;</p>
+
+<p class=MsoNormal>      text-transform: uppercase;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .hero-title span.highlight {</p>
+
+<p class=MsoNormal>      background: linear-gradient(120deg, #38bdf8, #a855f7);</p>
+
+<p class=MsoNormal>      -webkit-background-clip: text;</p>
+
+<p class=MsoNormal>      color: transparent;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .hero-sub {</p>
+
+<p class=MsoNormal>      font-size: 0.98rem;</p>
+
+<p class=MsoNormal>      color: var(--muted);</p>
+
+<p class=MsoNormal>      max-width: 620px;</p>
+
+<p class=MsoNormal>      line-height: 1.7;</p>
+
+<p class=MsoNormal>      margin-bottom: 14px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .hero-actions {</p>
+
+<p class=MsoNormal>      display: flex;</p>
+
+<p class=MsoNormal>      flex-wrap: wrap;</p>
+
+<p class=MsoNormal>      gap: 10px;</p>
+
+<p class=MsoNormal>      margin-top: 8px;</p>
+
+<p class=MsoNormal>      margin-bottom: 8px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .btn {</p>
+
+<p class=MsoNormal>      border-radius: 999px;</p>
+
+<p class=MsoNormal>      padding: 9px 18px;</p>
+
+<p class=MsoNormal>      font-size: 0.88rem;</p>
+
+<p class=MsoNormal>      font-weight: 600;</p>
+
+<p class=MsoNormal>      text-transform: uppercase;</p>
+
+<p class=MsoNormal>      letter-spacing: 0.12em;</p>
+
+<p class=MsoNormal>      border: 1px solid transparent;</p>
+
+<p class=MsoNormal>      cursor: pointer;</p>
+
+<p class=MsoNormal>      text-decoration: none;</p>
+
+<p class=MsoNormal>      display: inline-flex;</p>
+
+<p class=MsoNormal>      align-items: center;</p>
+
+<p class=MsoNormal>      gap: 6px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .btn-primary {</p>
+
+<p class=MsoNormal>      background: radial-gradient(circle at top left,
+#38bdf8, #0ea5e9);</p>
+
+<p class=MsoNormal>      color: #0b1220;</p>
+
+<p class=MsoNormal>      box-shadow: 0 0 35px rgba(56,189,248,0.55);</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .btn-outline {</p>
+
+<p class=MsoNormal>      background: rgba(15,23,42,0.9);</p>
+
+<p class=MsoNormal>      border-color: rgba(148,163,184,0.7);</p>
+
+<p class=MsoNormal>      color: var(--text);</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .hero-meta {</p>
+
+<p class=MsoNormal>      display: flex;</p>
+
+<p class=MsoNormal>      flex-wrap: wrap;</p>
+
+<p class=MsoNormal>      gap: 14px;</p>
+
+<p class=MsoNormal>      margin-top: 16px;</p>
+
+<p class=MsoNormal>      font-size: 0.8rem;</p>
+
+<p class=MsoNormal>      color: var(--muted);</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .hero-meta span {</p>
+
+<p class=MsoNormal>      padding-right: 10px;</p>
+
+<p class=MsoNormal>      border-right: 1px solid rgba(55,65,81,0.9);</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>    .hero-meta span:last-child { border-right: none; }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .hero-card {</p>
+
+<p class=MsoNormal>      position: relative;</p>
+
+<p class=MsoNormal>      border-radius: var(--radius-lg);</p>
+
+<p class=MsoNormal>      padding: 18px 18px 16px;</p>
+
+<p class=MsoNormal>      background: linear-gradient(145deg,</p>
+
+<p class=MsoNormal>        rgba(15,23,42,0.97),</p>
+
+<p class=MsoNormal>        rgba(24,35,65,0.96)</p>
+
+<p class=MsoNormal>      );</p>
+
+<p class=MsoNormal>      border: 1px solid rgba(148,163,184,0.55);</p>
+
+<p class=MsoNormal>      box-shadow:</p>
+
+<p class=MsoNormal>        0 0 0 1px rgba(15,23,42,0.9),</p>
+
+<p class=MsoNormal>        0 22px 60px rgba(15,23,42,0.9);</p>
+
+<p class=MsoNormal>      overflow: hidden;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .hero-orbit {</p>
+
+<p class=MsoNormal>      position: absolute;</p>
+
+<p class=MsoNormal>      inset: -40%;</p>
+
+<p class=MsoNormal>      border-radius: 999px;</p>
+
+<p class=MsoNormal>      border: 1px dashed rgba(148,163,184,0.2);</p>
+
+<p class=MsoNormal>      transform: rotate(10deg);</p>
+
+<p class=MsoNormal>      pointer-events: none;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .hero-orbit::after {</p>
+
+<p class=MsoNormal>      content: &quot;&quot;;</p>
+
+<p class=MsoNormal>      position: absolute;</p>
+
+<p class=MsoNormal>      width: 9px; height: 9px;</p>
+
+<p class=MsoNormal>      border-radius: 999px;</p>
+
+<p class=MsoNormal>      background: #38bdf8;</p>
+
+<p class=MsoNormal>      box-shadow: 0 0 22px rgba(56,189,248,0.8);</p>
+
+<p class=MsoNormal>      top: 16%; right: 18%;</p>
+
+<p class=MsoNormal>      animation: orbit 12s linear infinite;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    @keyframes orbit {</p>
+
+<p class=MsoNormal>      0% { transform: translate(0,0); opacity: 1; }</p>
+
+<p class=MsoNormal>      50% { opacity: 0.3; }</p>
+
+<p class=MsoNormal>      100% { transform: translate(-40px, 40px); opacity: 1;
+}</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .hero-stat {</p>
+
+<p class=MsoNormal>      font-size: 0.82rem;</p>
+
+<p class=MsoNormal>      color: var(--muted);</p>
+
+<p class=MsoNormal>      margin-bottom: 12px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>    .hero-stat strong { color: var(--accent); }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .hero-pill-row {</p>
+
+<p class=MsoNormal>      display: flex;</p>
+
+<p class=MsoNormal>      flex-wrap: wrap;</p>
+
+<p class=MsoNormal>      gap: 6px;</p>
+
+<p class=MsoNormal>      margin-bottom: 10px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .hero-pill {</p>
+
+<p class=MsoNormal>      font-size: 0.75rem;</p>
+
+<p class=MsoNormal>      padding: 4px 9px;</p>
+
+<p class=MsoNormal>      border-radius: 999px;</p>
+
+<p class=MsoNormal>      border: 1px solid rgba(148,163,184,0.55);</p>
+
+<p class=MsoNormal>      background: rgba(15,23,42,0.9);</p>
+
+<p class=MsoNormal>      white-space: nowrap;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .hero-kpi {</p>
+
+<p class=MsoNormal>      display: grid;</p>
+
+<p class=MsoNormal>      grid-template-columns: repeat(2, minmax(0, 1fr));</p>
+
+<p class=MsoNormal>      gap: 8px;</p>
+
+<p class=MsoNormal>      margin-top: 6px;</p>
+
+<p class=MsoNormal>      font-size: 0.8rem;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .hero-kpi-item {</p>
+
+<p class=MsoNormal>      padding: 8px 9px;</p>
+
+<p class=MsoNormal>      border-radius: 12px;</p>
+
+<p class=MsoNormal>      background: radial-gradient(circle at top,
+rgba(56,189,248,0.16), rgba(15,23,42,0.96));</p>
+
+<p class=MsoNormal>      border: 1px solid rgba(148,163,184,0.55);</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .hero-kpi-label {</p>
+
+<p class=MsoNormal>      font-size: 0.7rem;</p>
+
+<p class=MsoNormal>      color: var(--muted);</p>
+
+<p class=MsoNormal>      letter-spacing: 0.08em;</p>
+
+<p class=MsoNormal>      text-transform: uppercase;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .hero-kpi-value {</p>
+
+<p class=MsoNormal>      font-size: 0.96rem;</p>
+
+<p class=MsoNormal>      font-weight: 600;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    main section {</p>
+
+<p class=MsoNormal>      margin-top: 26px;</p>
+
+<p class=MsoNormal>      padding: 20px 20px 16px;</p>
+
+<p class=MsoNormal>      border-radius: var(--radius-lg);</p>
+
+<p class=MsoNormal>      background: linear-gradient(135deg,</p>
+
+<p class=MsoNormal>        rgba(15,23,42,0.98),</p>
+
+<p class=MsoNormal>        rgba(15,23,42,0.96)</p>
+
+<p class=MsoNormal>      );</p>
+
+<p class=MsoNormal>      border: 1px solid rgba(31,41,55,0.9);</p>
+
+<p class=MsoNormal>      box-shadow:</p>
+
+<p class=MsoNormal>        0 0 0 1px rgba(15,23,42,0.9),</p>
+
+<p class=MsoNormal>        0 18px 40px rgba(15,23,42,0.9);</p>
+
+<p class=MsoNormal>      opacity: 0;</p>
+
+<p class=MsoNormal>      transform: translateY(30px);</p>
+
+<p class=MsoNormal>      transition: opacity 0.7s ease-out, transform 0.7s
+ease-out;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    main section.visible {</p>
+
+<p class=MsoNormal>      opacity: 1;</p>
+
+<p class=MsoNormal>      transform: translateY(0);</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    section h2 {</p>
+
+<p class=MsoNormal>      margin: 0 0 10px;</p>
+
+<p class=MsoNormal>      font-size: 0.98rem;</p>
+
+<p class=MsoNormal>      text-transform: uppercase;</p>
+
+<p class=MsoNormal>      letter-spacing: 0.16em;</p>
+
+<p class=MsoNormal>      color: var(--muted);</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    section h2 span {</p>
+
+<p class=MsoNormal>      color: var(--accent);</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .section-sub {</p>
+
+<p class=MsoNormal>      font-size: 0.86rem;</p>
+
+<p class=MsoNormal>      color: var(--muted);</p>
+
+<p class=MsoNormal>      margin-bottom: 10px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .chip-row {</p>
+
+<p class=MsoNormal>      display: flex;</p>
+
+<p class=MsoNormal>      flex-wrap: wrap;</p>
+
+<p class=MsoNormal>      gap: 6px;</p>
+
+<p class=MsoNormal>      margin-bottom: 6px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .chip {</p>
+
+<p class=MsoNormal>      font-size: 0.78rem;</p>
+
+<p class=MsoNormal>      padding: 4px 10px;</p>
+
+<p class=MsoNormal>      border-radius: 999px;</p>
+
+<p class=MsoNormal>      border: 1px solid rgba(55,65,81,0.95);</p>
+
+<p class=MsoNormal>      background: rgba(15,23,42,0.96);</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .exp-grid {</p>
+
+<p class=MsoNormal>      display: grid;</p>
+
+<p class=MsoNormal>      grid-template-columns: minmax(0, 3fr) minmax(0,
+2.2fr);</p>
+
+<p class=MsoNormal>      gap: 20px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    @media (max-width: 900px) {</p>
+
+<p class=MsoNormal>      .exp-grid {</p>
+
+<p class=MsoNormal>        grid-template-columns: 1fr;</p>
+
+<p class=MsoNormal>      }</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .job {</p>
+
+<p class=MsoNormal>      margin-bottom: 16px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>    .job:last-child { margin-bottom: 0; }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .job-header {</p>
+
+<p class=MsoNormal>      display: flex;</p>
+
+<p class=MsoNormal>      justify-content: space-between;</p>
+
+<p class=MsoNormal>      gap: 10px;</p>
+
+<p class=MsoNormal>      font-size: 0.9rem;</p>
+
+<p class=MsoNormal>      font-weight: 600;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .job-meta {</p>
+
+<p class=MsoNormal>      font-size: 0.8rem;</p>
+
+<p class=MsoNormal>      color: var(--muted);</p>
+
+<p class=MsoNormal>      text-align: right;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .job-sub {</p>
+
+<p class=MsoNormal>      font-size: 0.8rem;</p>
+
+<p class=MsoNormal>      color: var(--muted);</p>
+
+<p class=MsoNormal>      margin-top: 2px;</p>
+
+<p class=MsoNormal>      margin-bottom: 4px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .job ul {</p>
+
+<p class=MsoNormal>      margin: 4px 0 0;</p>
+
+<p class=MsoNormal>      padding-left: 18px;</p>
+
+<p class=MsoNormal>      font-size: 0.86rem;</p>
+
+<p class=MsoNormal>      color: var(--text);</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .proj {</p>
+
+<p class=MsoNormal>      margin-bottom: 12px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>    .proj:last-child { margin-bottom: 0; }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .proj-title {</p>
+
+<p class=MsoNormal>      font-size: 0.9rem;</p>
+
+<p class=MsoNormal>      font-weight: 600;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .proj-tools {</p>
+
+<p class=MsoNormal>      font-size: 0.78rem;</p>
+
+<p class=MsoNormal>      color: var(--muted);</p>
+
+<p class=MsoNormal>      margin-bottom: 2px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .proj ul {</p>
+
+<p class=MsoNormal>      margin: 4px 0 0;</p>
+
+<p class=MsoNormal>      padding-left: 18px;</p>
+
+<p class=MsoNormal>      font-size: 0.84rem;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .edu-item {</p>
+
+<p class=MsoNormal>      font-size: 0.88rem;</p>
+
+<p class=MsoNormal>      margin-bottom: 8px;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>    .edu-item span {</p>
+
+<p class=MsoNormal>      display: block;</p>
+
+<p class=MsoNormal>      font-size: 0.8rem;</p>
+
+<p class=MsoNormal>      color: var(--muted);</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .cert-list {</p>
+
+<p class=MsoNormal>      margin: 4px 0 0;</p>
+
+<p class=MsoNormal>      padding-left: 18px;</p>
+
+<p class=MsoNormal>      font-size: 0.84rem;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    footer {</p>
+
+<p class=MsoNormal>      margin-top: 28px;</p>
+
+<p class=MsoNormal>      font-size: 0.76rem;</p>
+
+<p class=MsoNormal>      color: var(--muted);</p>
+
+<p class=MsoNormal>      text-align: center;</p>
+
+<p class=MsoNormal>      padding: 10px 0 0;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    .accent-text {</p>
+
+<p class=MsoNormal>      background: linear-gradient(120deg,#38bdf8,#a855f7);</p>
+
+<p class=MsoNormal>      -webkit-background-clip: text;</p>
+
+<p class=MsoNormal>      color: transparent;</p>
+
+<p class=MsoNormal>    }</p>
+
+<p class=MsoNormal>  &lt;/style&gt;</p>
+
+<p class=MsoNormal>&lt;/head&gt;</p>
+
+<p class=MsoNormal>&lt;body&gt;</p>
+
+<p class=MsoNormal>  &lt;div class=&quot;grid-lines&quot;&gt;&lt;/div&gt;</p>
+
+<p class=MsoNormal>  &lt;div class=&quot;bg-orb a&quot;&gt;&lt;/div&gt;</p>
+
+<p class=MsoNormal>  &lt;div class=&quot;bg-orb b&quot;&gt;&lt;/div&gt;</p>
+
+<p class=MsoNormal>  &lt;div class=&quot;bg-orb c&quot;&gt;&lt;/div&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>  &lt;nav&gt;</p>
+
+<p class=MsoNormal>    &lt;div class=&quot;nav-inner&quot;&gt;</p>
+
+<p class=MsoNormal>      &lt;div class=&quot;nav-brand&quot;&gt;GOWTHAM ·
+MLOPS&lt;/div&gt;</p>
+
+<p class=MsoNormal>      &lt;div class=&quot;nav-links&quot;&gt;</p>
+
+<p class=MsoNormal>        &lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;</p>
+
+<p class=MsoNormal>        &lt;a
+href=&quot;#experience&quot;&gt;Experience&lt;/a&gt;</p>
+
+<p class=MsoNormal>        &lt;a
+href=&quot;#projects&quot;&gt;Projects&lt;/a&gt;</p>
+
+<p class=MsoNormal>        &lt;a href=&quot;#skills&quot;&gt;Skills&lt;/a&gt;</p>
+
+<p class=MsoNormal>        &lt;a href=&quot;#contact&quot;&gt;Contact&lt;/a&gt;</p>
+
+<p class=MsoNormal>      &lt;/div&gt;</p>
+
+<p class=MsoNormal>    &lt;/div&gt;</p>
+
+<p class=MsoNormal>  &lt;/nav&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>  &lt;div class=&quot;page&quot;&gt;</p>
+
+<p class=MsoNormal>    &lt;header class=&quot;hero&quot;
+id=&quot;about&quot;&gt;</p>
+
+<p class=MsoNormal>      &lt;div&gt;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;tagline&quot;&gt;</p>
+
+<p class=MsoNormal>          &lt;span
+class=&quot;tag-dot&quot;&gt;&lt;/span&gt;</p>
+
+<p class=MsoNormal>          &lt;span&gt;Vertex AI · Kubeflow ·
+GCP&lt;/span&gt;</p>
+
+<p class=MsoNormal>        &lt;/div&gt;</p>
+
+<p class=MsoNormal>        &lt;h1 class=&quot;hero-title&quot;&gt;</p>
+
+<p class=MsoNormal>          MLOps &lt;span
+class=&quot;highlight&quot;&gt;Platform Engineer&lt;/span&gt;  </p>
+
+<p class=MsoNormal>          building reliable AI infrastructure.</p>
+
+<p class=MsoNormal>        &lt;/h1&gt;</p>
+
+<p class=MsoNormal>        &lt;p class=&quot;hero-sub&quot;&gt;</p>
+
+<p class=MsoNormal>          MLOps Platform Engineer and GCP<span
+style='font-family:"Cambria Math",serif'>‑</span>certified professional with 3+
+years of experience</p>
+
+<p class=MsoNormal>          designing and operationalizing machine learning
+platforms across financial services</p>
+
+<p class=MsoNormal>          and supply chain domains. Specializes in end<span
+style='font-family:"Cambria Math",serif'>‑</span>to<span style='font-family:
+"Cambria Math",serif'>‑</span>end ML pipelines on GCP, CI/CD for ML,</p>
+
+<p class=MsoNormal>          containerized workflows, and regulated<span
+style='font-family:"Cambria Math",serif'>‑</span>grade monitoring and
+governance.</p>
+
+<p class=MsoNormal>        &lt;/p&gt;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;hero-actions&quot;&gt;</p>
+
+<p class=MsoNormal>          &lt;a class=&quot;btn btn-primary&quot;
+href=&quot;#projects&quot;&gt;View MLOps Projects&lt;/a&gt;</p>
+
+<p class=MsoNormal>          &lt;a class=&quot;btn btn-outline&quot;
+href=&quot;mailto:gowthamkatari64@gmail.com&quot;&gt;Contact Me&lt;/a&gt;</p>
+
+<p class=MsoNormal>        &lt;/div&gt;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;hero-meta&quot;&gt;</p>
+
+<p class=MsoNormal>          &lt;span&gt;3+ YEARS · DATA &amp;amp;
+MLOPS&lt;/span&gt;</p>
+
+<p class=MsoNormal>          &lt;span&gt;GCP ASSOCIATE CLOUD
+ENGINEER&lt;/span&gt;</p>
+
+<p class=MsoNormal>          &lt;span&gt;OPEN WORK PERMIT · CANADA&lt;/span&gt;</p>
+
+<p class=MsoNormal>        &lt;/div&gt;</p>
+
+<p class=MsoNormal>      &lt;/div&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>      &lt;div class=&quot;hero-card&quot;&gt;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;hero-orbit&quot;&gt;&lt;/div&gt;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;hero-stat&quot;&gt;</p>
+
+<p class=MsoNormal>          Building &lt;strong&gt;platforms&lt;/strong&gt;
+that let data scientists ship models safely,</p>
+
+<p class=MsoNormal>          repeatably, and with full observability.</p>
+
+<p class=MsoNormal>        &lt;/div&gt;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;hero-pill-row&quot;&gt;</p>
+
+<p class=MsoNormal>          &lt;div class=&quot;hero-pill&quot;&gt;Vertex AI
+Pipelines&lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;div
+class=&quot;hero-pill&quot;&gt;Kubeflow&lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;div class=&quot;hero-pill&quot;&gt;Docker
+&amp;amp; GKE&lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;div class=&quot;hero-pill&quot;&gt;Cloud Build
+CI/CD&lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;div class=&quot;hero-pill&quot;&gt;Model
+Monitoring&lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;div class=&quot;hero-pill&quot;&gt;Governance
+&amp;amp; Compliance&lt;/div&gt;</p>
+
+<p class=MsoNormal>        &lt;/div&gt;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;hero-kpi&quot;&gt;</p>
+
+<p class=MsoNormal>          &lt;div class=&quot;hero-kpi-item&quot;&gt;</p>
+
+<p class=MsoNormal>            &lt;div
+class=&quot;hero-kpi-label&quot;&gt;Deployment Lead Time&lt;/div&gt;</p>
+
+<p class=MsoNormal>            &lt;div
+class=&quot;hero-kpi-value&quot;&gt;−40%&lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;div class=&quot;hero-kpi-item&quot;&gt;</p>
+
+<p class=MsoNormal>            &lt;div class=&quot;hero-kpi-label&quot;&gt;Data
+Quality for ML&lt;/div&gt;</p>
+
+<p class=MsoNormal>            &lt;div
+class=&quot;hero-kpi-value&quot;&gt;≈99.5%&lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;div class=&quot;hero-kpi-item&quot;&gt;</p>
+
+<p class=MsoNormal>            &lt;div
+class=&quot;hero-kpi-label&quot;&gt;Transaction Volume&lt;/div&gt;</p>
+
+<p class=MsoNormal>            &lt;div
+class=&quot;hero-kpi-value&quot;&gt;100K+/wk&lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;div class=&quot;hero-kpi-item&quot;&gt;</p>
+
+<p class=MsoNormal>            &lt;div
+class=&quot;hero-kpi-label&quot;&gt;Domains&lt;/div&gt;</p>
+
+<p class=MsoNormal>            &lt;div class=&quot;hero-kpi-value&quot;&gt;FS ·
+Supply Chain&lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;/div&gt;</p>
+
+<p class=MsoNormal>        &lt;/div&gt;</p>
+
+<p class=MsoNormal>      &lt;/div&gt;</p>
+
+<p class=MsoNormal>    &lt;/header&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    &lt;main&gt;</p>
+
+<p class=MsoNormal>      &lt;section id=&quot;experience&quot;&gt;</p>
+
+<p class=MsoNormal>        &lt;h2&gt;&lt;span&gt;Experience&lt;/span&gt; ·
+Platform &amp;amp; Data&lt;/h2&gt;</p>
+
+<p class=MsoNormal>        &lt;p class=&quot;section-sub&quot;&gt;</p>
+
+<p class=MsoNormal>          Production<span style='font-family:"Cambria Math",serif'>‑</span>oriented
+experience designing MLOps platforms, ML<span style='font-family:"Cambria Math",serif'>‑</span>ready
+data pipelines,</p>
+
+<p class=MsoNormal>          and observability for models in financial<span
+style='font-family:"Cambria Math",serif'>‑</span>services and supply<span
+style='font-family:"Cambria Math",serif'>‑</span>chain environments.</p>
+
+<p class=MsoNormal>        &lt;/p&gt;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;exp-grid&quot;&gt;</p>
+
+<p class=MsoNormal>          &lt;div&gt;</p>
+
+<p class=MsoNormal>            &lt;div class=&quot;job&quot;&gt;</p>
+
+<p class=MsoNormal>              &lt;div class=&quot;job-header&quot;&gt;</p>
+
+<p class=MsoNormal>                &lt;div&gt;MLOps Platform
+Engineer&lt;/div&gt;</p>
+
+<p class=MsoNormal>                &lt;div class=&quot;job-meta&quot;&gt;IGUS
+Inc. · Toronto · Apr 2024 – Present&lt;/div&gt;</p>
+
+<p class=MsoNormal>              &lt;/div&gt;</p>
+
+<p class=MsoNormal>              &lt;div class=&quot;job-sub&quot;&gt;</p>
+
+<p class=MsoNormal>                Architecting a GCP<span style='font-family:
+"Cambria Math",serif'>‑</span>based MLOps platform for supply<span
+style='font-family:"Cambria Math",serif'>‑</span>chain forecasting models.</p>
+
+<p class=MsoNormal>              &lt;/div&gt;</p>
+
+<p class=MsoNormal>              &lt;ul&gt;</p>
+
+<p class=MsoNormal>                &lt;li&gt;Architected a cloud<span
+style='font-family:"Cambria Math",serif'>‑</span>based MLOps platform on GCP
+that standardized how data scientists package and deploy models, cutting
+deployment lead time by ~40%.&lt;/li&gt;</p>
+
+<p class=MsoNormal>                &lt;li&gt;Designed modular training and
+inference workflows using Vertex AI/Kubeflow patterns with separate Dockerized
+components for validation, feature engineering, training, evaluation, and batch
+prediction.&lt;/li&gt;</p>
+
+<p class=MsoNormal>                &lt;li&gt;Implemented CI/CD with Cloud Build
+and Git so every commit runs tests (PyTest, Pylint), builds images, and
+publishes them to Artifact Registry.&lt;/li&gt;</p>
+
+<p class=MsoNormal>                &lt;li&gt;Provisioned GCP resources with
+Terraform (Cloud Storage, Artifact Registry, IAM) to keep environments
+consistent and enforce least<span style='font-family:"Cambria Math",serif'>‑</span>privilege
+access.&lt;/li&gt;</p>
+
+<p class=MsoNormal>                &lt;li&gt;Configured monitoring for data
+drift and training<span style='font-family:"Cambria Math",serif'>‑</span>serving
+skew using Vertex AI Model Monitoring and custom BigQuery checks, triggering
+alerts and controlled retraining or rollback.&lt;/li&gt;</p>
+
+<p class=MsoNormal>                &lt;li&gt;Tracked data lineage and model
+metadata with Vertex ML Metadata patterns and internal documentation to support
+governance and audit requirements.&lt;/li&gt;</p>
+
+<p class=MsoNormal>              &lt;/ul&gt;</p>
+
+<p class=MsoNormal>            &lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;div&gt;</p>
+
+<p class=MsoNormal>            &lt;div class=&quot;job&quot;&gt;</p>
+
+<p class=MsoNormal>              &lt;div class=&quot;job-header&quot;&gt;</p>
+
+<p class=MsoNormal>                &lt;div&gt;Data Engineer &amp;amp; ML
+Infrastructure Associate&lt;/div&gt;</p>
+
+<p class=MsoNormal>                &lt;div class=&quot;job-meta&quot;&gt;Wipro
+Limited · Bengaluru · May 2022 – Jul 2023&lt;/div&gt;</p>
+
+<p class=MsoNormal>              &lt;/div&gt;</p>
+
+<p class=MsoNormal>              &lt;div class=&quot;job-sub&quot;&gt;</p>
+
+<p class=MsoNormal>                Built ML<span style='font-family:"Cambria Math",serif'>‑</span>ready
+data pipelines and feature layers for financial<span style='font-family:"Cambria Math",serif'>‑</span>services
+clients.</p>
+
+<p class=MsoNormal>              &lt;/div&gt;</p>
+
+<p class=MsoNormal>              &lt;ul&gt;</p>
+
+<p class=MsoNormal>                &lt;li&gt;Engineered ETL and ML<span
+style='font-family:"Cambria Math",serif'>‑</span>ready pipelines in Python and
+SQL, migrating legacy jobs to a cloud<span style='font-family:"Cambria Math",serif'>‑</span>oriented
+architecture and improving data availability for analytics and
+models.&lt;/li&gt;</p>
+
+<p class=MsoNormal>                &lt;li&gt;Maintained centralized feature
+layers on BigQuery/Snowflake to keep training and serving features consistent
+for fraud and risk models, reducing skew.&lt;/li&gt;</p>
+
+<p class=MsoNormal>                &lt;li&gt;Embedded schema, range, and
+distribution checks into pipelines processing 100K+ weekly transactions,
+achieving ~99.5% usable data for downstream ML and reporting.&lt;/li&gt;</p>
+
+<p class=MsoNormal>                &lt;li&gt;Introduced version control,
+branching strategies, and CI steps for analytics code, standardizing
+engineering practices with DevOps teams.&lt;/li&gt;</p>
+
+<p class=MsoNormal>                &lt;li&gt;Optimized stored procedures and
+schemas (MySQL, PostgreSQL), reducing query latency by ~20% for high<span
+style='font-family:"Cambria Math",serif'>‑</span>volume transaction
+workloads.&lt;/li&gt;</p>
+
+<p class=MsoNormal>                &lt;li&gt;Built Power BI dashboards to
+monitor pipeline health, latency, and error rates, allowing proactive incident
+detection and resolution.&lt;/li&gt;</p>
+
+<p class=MsoNormal>              &lt;/ul&gt;</p>
+
+<p class=MsoNormal>            &lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;/div&gt;</p>
+
+<p class=MsoNormal>        &lt;/div&gt;</p>
+
+<p class=MsoNormal>      &lt;/section&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>      &lt;section id=&quot;projects&quot;&gt;</p>
+
+<p class=MsoNormal>        &lt;h2&gt;&lt;span&gt;Key&lt;/span&gt; MLOps
+Projects&lt;/h2&gt;</p>
+
+<p class=MsoNormal>        &lt;p class=&quot;section-sub&quot;&gt;</p>
+
+<p class=MsoNormal>          Representative projects demonstrating end<span
+style='font-family:"Cambria Math",serif'>‑</span>to<span style='font-family:
+"Cambria Math",serif'>‑</span>end MLOps on GCP, from architecture and
+orchestration to monitoring, governance, and stakeholder reporting.</p>
+
+<p class=MsoNormal>        &lt;/p&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;proj&quot;&gt;</p>
+
+<p class=MsoNormal>          &lt;div class=&quot;proj-title
+accent-text&quot;&gt;Vertex AI Credit Risk Scoring Platform&lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;div class=&quot;proj-tools&quot;&gt;</p>
+
+<p class=MsoNormal>            GCP · Vertex AI Pipelines · BigQuery · Cloud
+Storage · Docker · Python · Git</p>
+
+<p class=MsoNormal>          &lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;ul&gt;</p>
+
+<p class=MsoNormal>            &lt;li&gt;Designed an end<span style='font-family:
+"Cambria Math",serif'>‑</span>to<span style='font-family:"Cambria Math",serif'>‑</span>end
+credit<span style='font-family:"Cambria Math",serif'>‑</span>risk scoring
+workflow on GCP using Vertex AI Pipelines for automated ingestion, feature
+engineering, model training, evaluation, and batch prediction.&lt;/li&gt;</p>
+
+<p class=MsoNormal>            &lt;li&gt;Implemented reusable Dockerized
+pipeline components and captured artifacts and lineage with Vertex ML Metadata
+patterns to support reproducibility and compliance.&lt;/li&gt;</p>
+
+<p class=MsoNormal>            &lt;li&gt;Integrated training pipelines with a
+model registry and separate batch<span style='font-family:"Cambria Math",serif'>‑</span>scoring
+pipeline so models are promoted only when metrics exceed agreed
+thresholds.&lt;/li&gt;</p>
+
+<p class=MsoNormal>            &lt;li&gt;Added drift and performance monitoring
+via Vertex AI Model Monitoring and scheduled BigQuery checks, plus alerting and
+rollback strategies modeled on regulated environments.&lt;/li&gt;</p>
+
+<p class=MsoNormal>          &lt;/ul&gt;</p>
+
+<p class=MsoNormal>        &lt;/div&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;proj&quot;&gt;</p>
+
+<p class=MsoNormal>          &lt;div class=&quot;proj-title
+accent-text&quot;&gt;Kubeflow / Vertex AI Supply Chain Pipelines&lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;div class=&quot;proj-tools&quot;&gt;</p>
+
+<p class=MsoNormal>            Kubeflow Pipelines · Vertex AI Pipelines · GCS ·
+BigQuery · Docker · Python</p>
+
+<p class=MsoNormal>          &lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;ul&gt;</p>
+
+<p class=MsoNormal>            &lt;li&gt;Architected a demand<span
+style='font-family:"Cambria Math",serif'>‑</span>forecasting workflow split
+into modular steps (ingestion, feature engineering, training, evaluation, batch
+serving) expressed as a Kubeflow/Vertex pipeline in Python DSL.&lt;/li&gt;</p>
+
+<p class=MsoNormal>            &lt;li&gt;Parameterized pipeline runs for
+different product groups and horizons, enabling re<span style='font-family:
+"Cambria Math",serif'>‑</span>use and rapid experimentation without modifying
+core logic.&lt;/li&gt;</p>
+
+<p class=MsoNormal>            &lt;li&gt;Wired CI hooks so commits trigger
+builds and containerization of updated components, and new BigQuery data
+arrivals schedule forecast runs automatically.&lt;/li&gt;</p>
+
+<p class=MsoNormal>            &lt;li&gt;Logged runtime, failure, and accuracy
+metrics to BigQuery and surfaced them in dashboards for pipeline and model<span
+style='font-family:"Cambria Math",serif'>‑</span>level performance
+tuning.&lt;/li&gt;</p>
+
+<p class=MsoNormal>          &lt;/ul&gt;</p>
+
+<p class=MsoNormal>        &lt;/div&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;proj&quot;&gt;</p>
+
+<p class=MsoNormal>          &lt;div class=&quot;proj-title
+accent-text&quot;&gt;Governance<span style='font-family:"Cambria Math",serif'>‑</span>Focused
+Fraud Analytics MLOps Framework&lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;div class=&quot;proj-tools&quot;&gt;</p>
+
+<p class=MsoNormal>            Python · SQL · Docker · Airflow<span
+style='font-family:"Cambria Math",serif'>‑</span>style orchestration · MLflow ·
+BI</p>
+
+<p class=MsoNormal>          &lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;ul&gt;</p>
+
+<p class=MsoNormal>            &lt;li&gt;Developed a reference MLOps framework
+for fraud detection with explicit stages for validation, feature engineering,
+training, evaluation, and scoring, orchestrated via scheduled
+workflows.&lt;/li&gt;</p>
+
+<p class=MsoNormal>            &lt;li&gt;Implemented model and data versioning,
+detailed configuration and metric logging, and documented decision logic to
+support model risk management and audits.&lt;/li&gt;</p>
+
+<p class=MsoNormal>            &lt;li&gt;Exposed fraud KPIs, drift indicators,
+and model health metrics to risk and compliance stakeholders through
+dashboards, improving transparency and trust in ML<span style='font-family:
+"Cambria Math",serif'>‑</span>driven decisions.&lt;/li&gt;</p>
+
+<p class=MsoNormal>          &lt;/ul&gt;</p>
+
+<p class=MsoNormal>        &lt;/div&gt;</p>
+
+<p class=MsoNormal>      &lt;/section&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>      &lt;section id=&quot;skills&quot;&gt;</p>
+
+<p class=MsoNormal>        &lt;h2&gt;&lt;span&gt;Skills&lt;/span&gt; &amp;amp;
+Tooling&lt;/h2&gt;</p>
+
+<p class=MsoNormal>        &lt;p class=&quot;section-sub&quot;&gt;</p>
+
+<p class=MsoNormal>          A stack focused on cloud<span style='font-family:
+"Cambria Math",serif'>‑</span>native MLOps, robust data engineering, and
+production<span style='font-family:"Cambria Math",serif'>‑</span>grade
+monitoring.</p>
+
+<p class=MsoNormal>        &lt;/p&gt;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;chip-row&quot;&gt;</p>
+
+<p class=MsoNormal>          &lt;span class=&quot;chip&quot;&gt;Vertex AI
+Pipelines&lt;/span&gt;</p>
+
+<p class=MsoNormal>          &lt;span class=&quot;chip&quot;&gt;Kubeflow
+Pipelines&lt;/span&gt;</p>
+
+<p class=MsoNormal>          &lt;span class=&quot;chip&quot;&gt;TFX
+Patterns&lt;/span&gt;</p>
+
+<p class=MsoNormal>          &lt;span class=&quot;chip&quot;&gt;MLflow /
+Experiment Tracking&lt;/span&gt;</p>
+
+<p class=MsoNormal>          &lt;span class=&quot;chip&quot;&gt;Airflow / Cloud
+Composer&lt;/span&gt;</p>
+
+<p class=MsoNormal>          &lt;span class=&quot;chip&quot;&gt;Docker
+&amp;amp; Kubernetes (GKE)&lt;/span&gt;</p>
+
+<p class=MsoNormal>          &lt;span class=&quot;chip&quot;&gt;Cloud Build ·
+GitHub Actions · GitLab CI&lt;/span&gt;</p>
+
+<p class=MsoNormal>          &lt;span
+class=&quot;chip&quot;&gt;Terraform&lt;/span&gt;</p>
+
+<p class=MsoNormal>          &lt;span class=&quot;chip&quot;&gt;Python · Pandas
+· NumPy&lt;/span&gt;</p>
+
+<p class=MsoNormal>          &lt;span class=&quot;chip&quot;&gt;Scikit<span
+style='font-family:"Cambria Math",serif'>‑</span>learn ·
+TensorFlow&lt;/span&gt;</p>
+
+<p class=MsoNormal>          &lt;span class=&quot;chip&quot;&gt;BigQuery ·
+Snowflake&lt;/span&gt;</p>
+
+<p class=MsoNormal>          &lt;span class=&quot;chip&quot;&gt;Data Lineage
+&amp;amp; Quality&lt;/span&gt;</p>
+
+<p class=MsoNormal>          &lt;span class=&quot;chip&quot;&gt;Vertex AI Model
+Monitoring&lt;/span&gt;</p>
+
+<p class=MsoNormal>          &lt;span class=&quot;chip&quot;&gt;Prometheus /
+Grafana<span style='font-family:"Cambria Math",serif'>‑</span>style
+Dashboards&lt;/span&gt;</p>
+
+<p class=MsoNormal>          &lt;span class=&quot;chip&quot;&gt;Power
+BI&lt;/span&gt;</p>
+
+<p class=MsoNormal>        &lt;/div&gt;</p>
+
+<p class=MsoNormal>      &lt;/section&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>      &lt;section id=&quot;contact&quot;&gt;</p>
+
+<p class=MsoNormal>        &lt;h2&gt;&lt;span&gt;Profile&lt;/span&gt; &amp;amp;
+Contact&lt;/h2&gt;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;exp-grid&quot;&gt;</p>
+
+<p class=MsoNormal>          &lt;div&gt;</p>
+
+<p class=MsoNormal>            &lt;p class=&quot;section-sub&quot;&gt;</p>
+
+<p class=MsoNormal>              Postgraduate in Artificial Intelligence with
+hands<span style='font-family:"Cambria Math",serif'>‑</span>on experience
+turning</p>
+
+<p class=MsoNormal>              ML models into observable, governed services
+on cloud platforms.</p>
+
+<p class=MsoNormal>            &lt;/p&gt;</p>
+
+<p class=MsoNormal>            &lt;div class=&quot;edu-item&quot;&gt;</p>
+
+<p class=MsoNormal>              &lt;strong&gt;Postgraduate Certificate in
+Artificial Intelligence&lt;/strong&gt;</p>
+
+<p class=MsoNormal>              &lt;span&gt;George Brown College · Ontario,
+Canada · Sep 2023 – Aug 2024&lt;/span&gt;</p>
+
+<p class=MsoNormal>              &lt;span&gt;GPA: 3.67 / 4.00 (Dean's
+Honor)&lt;/span&gt;</p>
+
+<p class=MsoNormal>            &lt;/div&gt;</p>
+
+<p class=MsoNormal>            &lt;div class=&quot;edu-item&quot;&gt;</p>
+
+<p class=MsoNormal>              &lt;strong&gt;B.Tech in Electronics and
+Communication Engineering&lt;/strong&gt;</p>
+
+<p class=MsoNormal>              &lt;span&gt;Jawaharlal Nehru Technological
+University · Anantapur, India&lt;/span&gt;</p>
+
+<p class=MsoNormal>              &lt;span&gt;Jun 2018 – Apr 2022 · CGPA: 8.51 /
+10.00&lt;/span&gt;</p>
+
+<p class=MsoNormal>            &lt;/div&gt;</p>
+
+<p class=MsoNormal>            &lt;div class=&quot;edu-item&quot;&gt;</p>
+
+<p class=MsoNormal>              &lt;strong&gt;Certifications&lt;/strong&gt;</p>
+
+<p class=MsoNormal>              &lt;ul class=&quot;cert-list&quot;&gt;</p>
+
+<p class=MsoNormal>                &lt;li&gt;Associate Cloud Engineer – Google
+Cloud Platform&lt;/li&gt;</p>
+
+<p class=MsoNormal>                &lt;li&gt;Machine Learning Specialization –
+Coursera&lt;/li&gt;</p>
+
+<p class=MsoNormal>                &lt;li&gt;Generative AI Mastermind
+Certification – Outskill&lt;/li&gt;</p>
+
+<p class=MsoNormal>                &lt;li&gt;Google Analytics Certification –
+Google&lt;/li&gt;</p>
+
+<p class=MsoNormal>                &lt;li&gt;Enterprise Design Thinking
+Practitioner – IBM&lt;/li&gt;</p>
+
+<p class=MsoNormal>              &lt;/ul&gt;</p>
+
+<p class=MsoNormal>            &lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;/div&gt;</p>
+
+<p class=MsoNormal>          &lt;div&gt;</p>
+
+<p class=MsoNormal>            &lt;p class=&quot;section-sub&quot;&gt;</p>
+
+<p class=MsoNormal>              Open to MLOps Platform Engineer / ML Platform
+roles where Vertex AI,</p>
+
+<p class=MsoNormal>              Kubeflow, and modern data stacks are central
+to the mission.</p>
+
+<p class=MsoNormal>            &lt;/p&gt;</p>
+
+<p class=MsoNormal>            &lt;p style=&quot;font-size:0.9rem;&quot;&gt;</p>
+
+<p class=MsoNormal>              &lt;strong&gt;Location:&lt;/strong&gt;
+Toronto, ON (open to hybrid/remote across Canada)&lt;br /&gt;</p>
+
+<p class=MsoNormal>              &lt;strong&gt;Work
+Authorization:&lt;/strong&gt; Legally eligible to work in Canada (Open Work
+Permit)</p>
+
+<p class=MsoNormal>            &lt;/p&gt;</p>
+
+<p class=MsoNormal>            &lt;p style=&quot;font-size:0.9rem;&quot;&gt;</p>
+
+<p class=MsoNormal>              &lt;strong&gt;Email:&lt;/strong&gt;</p>
+
+<p class=MsoNormal>              &lt;a
+href=&quot;mailto:gowthamkatari64@gmail.com&quot;&gt;gowthamkatari64@gmail.com&lt;/a&gt;&lt;br
+/&gt;</p>
+
+<p class=MsoNormal>              &lt;strong&gt;Phone:&lt;/strong&gt;</p>
+
+<p class=MsoNormal>              &lt;a href=&quot;tel:+14376611713&quot;&gt;+1
+(437) 661<span style='font-family:"Cambria Math",serif'>‑</span>1713&lt;/a&gt;&lt;br
+/&gt;</p>
+
+<p class=MsoNormal>              &lt;strong&gt;LinkedIn:&lt;/strong&gt;</p>
+
+<p class=MsoNormal>              &lt;a href=&quot;https://linkedin.com&quot;
+target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;linkedin.com&lt;/a&gt;</p>
+
+<p class=MsoNormal>            &lt;/p&gt;</p>
+
+<p class=MsoNormal>          &lt;/div&gt;</p>
+
+<p class=MsoNormal>        &lt;/div&gt;</p>
+
+<p class=MsoNormal>      &lt;/section&gt;</p>
+
+<p class=MsoNormal>    &lt;/main&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    &lt;footer&gt;</p>
+
+<p class=MsoNormal>      © &lt;span id=&quot;year&quot;&gt;&lt;/span&gt;
+Gowtham Katari · MLOps Platform Engineer · Built with HTML/CSS/JS</p>
+
+<p class=MsoNormal>    &lt;/footer&gt;</p>
+
+<p class=MsoNormal>  &lt;/div&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>  &lt;script&gt;</p>
+
+<p class=MsoNormal>    // Scroll reveal</p>
+
+<p class=MsoNormal>    const observer = new IntersectionObserver(entries =&gt;
+{</p>
+
+<p class=MsoNormal>      entries.forEach(e =&gt; {</p>
+
+<p class=MsoNormal>        if (e.isIntersecting) {</p>
+
+<p class=MsoNormal>          e.target.classList.add('visible');</p>
+
+<p class=MsoNormal>          observer.unobserve(e.target);</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>      });</p>
+
+<p class=MsoNormal>    }, { threshold: 0.18 });</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    document.querySelectorAll('main section').forEach(sec
+=&gt; observer.observe(sec));</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    // Parallax orbs</p>
+
+<p class=MsoNormal>    document.addEventListener('pointermove', e =&gt; {</p>
+
+<p class=MsoNormal>      const { innerWidth: w, innerHeight: h } = window;</p>
+
+<p class=MsoNormal>      const x = (e.clientX - w / 2) / w;</p>
+
+<p class=MsoNormal>      const y = (e.clientY - h / 2) / h;</p>
+
+<p class=MsoNormal>      document.querySelectorAll('.bg-orb').forEach((orb, i)
+=&gt; {</p>
+
+<p class=MsoNormal>        const intensity = (i + 1) * 14;</p>
+
+<p class=MsoNormal>        orb.style.transform = `translate(${x * intensity}px,
+${y * intensity}px)`;</p>
+
+<p class=MsoNormal>      });</p>
+
+<p class=MsoNormal>    });</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    document.getElementById('year').textContent = new
+Date().getFullYear();</p>
+
+<p class=MsoNormal>  &lt;/script&gt;</p>
+
+<p class=MsoNormal>&lt;/body&gt;</p>
+
+<p class=MsoNormal>&lt;/html&gt;</p>
+
+</div>
+
+</body>
+
+</html>
