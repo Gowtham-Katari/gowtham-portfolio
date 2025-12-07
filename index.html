@@ -3,478 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gowtham K | MLOps Platform Engineer</title>
+    <title>Gowtham K | MLOps Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* --- RESET & VARIABLES --- */
-        :root {
-            --bg-color: #0a192f;
-            --light-bg: #112240;
-            --text-primary: #ccd6f6;
-            --text-secondary: #8892b0;
-            --accent: #64ffda; /* Neon Cyan */
-            --glass: rgba(17, 34, 64, 0.7);
-            --transition: all 0.3s ease-in-out;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a { text-decoration: none; color: inherit; transition: var(--transition); }
-        ul { list-style: none; }
-
-        /* --- SCROLLBAR --- */
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: var(--bg-color); }
-        ::-webkit-scrollbar-thumb { background: var(--text-secondary); border-radius: 5px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
-
-        /* --- HEADER --- */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(10, 25, 47, 0.85);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: 0 10px 30px -10px rgba(2,12,27,0.7);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            font-size: 0.9rem;
-            color: var(--text-primary);
-        }
-
-        .nav-links a:hover { color: var(--accent); }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 0 150px;
-            position: relative;
-        }
-
-        .hero h4 { color: var(--accent); font-weight: normal; margin-bottom: 20px; font-size: 1.2rem; }
-        .hero h1 { font-size: 5rem; font-weight: 800; color: #e6f1ff; line-height: 1.1; }
-        .hero h2 { font-size: 4rem; font-weight: 700; color: var(--text-secondary); line-height: 1.1; margin-bottom: 20px; }
-        .hero p { max-width: 600px; color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 50px; }
+        :root { --bg: #0a192f; --text: #ccd6f6; --accent: #64ffda; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        body { background: var(--bg); color: var(--text); padding: 50px; line-height: 1.6; }
         
-        .btn {
-            padding: 15px 30px;
-            border: 1px solid var(--accent);
-            border-radius: 5px;
-            color: var(--accent);
-            font-weight: 600;
-            cursor: pointer;
-            background: transparent;
-            transition: var(--transition);
-        }
+        /* Navbar */
+        nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 80px; }
+        .logo { font-size: 1.5rem; color: var(--accent); border: 2px solid var(--accent); padding: 5px 10px; border-radius: 5px; }
         
-        .btn:hover { background: rgba(100, 255, 218, 0.1); transform: translateY(-3px); }
+        /* Hero */
+        .hero h1 { font-size: 4rem; color: #fff; margin-bottom: 10px; }
+        .hero h2 { font-size: 2.5rem; color: #8892b0; margin-bottom: 20px; }
+        .hero p { max-width: 600px; color: #8892b0; font-size: 1.1rem; margin-bottom: 30px; }
+        .btn { padding: 12px 24px; border: 1px solid var(--accent); color: var(--accent); text-decoration: none; border-radius: 4px; transition: 0.3s; }
+        .btn:hover { background: rgba(100, 255, 218, 0.1); }
 
-        /* --- SECTIONS GENERAL --- */
-        section { padding: 100px 150px; }
-        .section-title {
-            display: flex;
-            align-items: center;
-            margin-bottom: 40px;
-            font-size: 2rem;
-            color: #e6f1ff;
-        }
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 300px;
-            height: 1px;
-            background: #233554;
-            margin-left: 20px;
-        }
-        .section-title span { color: var(--accent); margin-right: 10px; font-family: monospace; }
-
-        /* --- SKILLS VISUALIZATION --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
+        /* Sections */
+        section { margin-bottom: 100px; }
+        h3 { display: flex; align-items: center; font-size: 1.8rem; color: #fff; margin-bottom: 30px; }
+        h3::after { content: ""; display: block; width: 200px; height: 1px; background: #233554; margin-left: 20px; }
         
-        .skill-category {
-            background: var(--light-bg);
-            padding: 20px;
-            border-radius: 8px;
-            transition: var(--transition);
-        }
+        /* Experience Cards */
+        .job-card { background: #112240; padding: 25px; border-radius: 8px; margin-bottom: 20px; border-left: 3px solid var(--accent); }
+        .job-title { color: #fff; font-size: 1.2rem; font-weight: bold; }
+        .job-date { font-family: monospace; color: #a8b2d1; font-size: 0.9rem; margin-bottom: 10px; display: block; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 5px; color: #8892b0; }
+
+        /* Project Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: #112240; padding: 25px; border-radius: 8px; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card h4 { color: #fff; font-size: 1.4rem; margin-bottom: 10px; }
+        .tech-stack { font-family: monospace; color: var(--accent); font-size: 0.8rem; margin-top: 15px; }
         
-        .skill-category:hover { transform: translateY(-5px); box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7); }
-        .skill-header { color: var(--accent); margin-bottom: 10px; font-weight: bold; display: flex; align-items: center; gap: 10px;}
-        .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
-        .tag {
-            font-size: 0.8rem;
-            font-family: monospace;
-            color: var(--text-primary);
-            background: rgba(100, 255, 218, 0.1);
-            padding: 5px 10px;
-            border-radius: 15px;
-        }
-
-        /* --- EXPERIENCE TIMELINE --- */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background-color: var(--text-secondary);
-            top: 0;
-            bottom: 0;
-            left: 20px;
-            margin-left: -1px;
-        }
-
-        .job-card {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 100%;
-            margin-bottom: 30px;
-        }
-        
-        .job-card::after {
-            content: '';
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            right: -17px;
-            background-color: var(--bg-color);
-            border: 4px solid var(--accent);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-            left: 11px;
-        }
-
-        .job-content {
-            padding: 20px 30px;
-            background: var(--light-bg);
-            border-radius: 6px;
-            box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
-        }
-
-        .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; flex-wrap: wrap; }
-        .job-title { font-size: 1.3rem; color: #e6f1ff; font-weight: 600; }
-        .company { color: var(--accent); font-family: monospace; }
-        .date { font-size: 0.9rem; font-family: monospace; color: var(--text-secondary); }
-        .job-details li { margin-bottom: 10px; position: relative; padding-left: 20px; color: var(--text-secondary); font-size: 0.95rem;}
-        .job-details li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
-
-        /* --- PROJECTS GRID --- */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .project-card {
-            background: var(--light-bg);
-            border-radius: 10px;
-            padding: 25px;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .project-card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
-        }
-
-        .folder-icon { color: var(--accent); font-size: 40px; margin-bottom: 20px; }
-        .project-title { color: #e6f1ff; font-size: 1.4rem; font-weight: bold; margin-bottom: 10px; }
-        .project-desc { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
-        .project-tech { display: flex; flex-wrap: wrap; gap: 10px; font-family: monospace; font-size: 0.8rem; color: var(--text-secondary); }
-        
-        /* Visualize Architecture Placeholder */
-        .arch-viz {
-            height: 100px;
-            background: rgba(100, 255, 218, 0.05);
-            border: 1px dashed var(--accent);
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            color: var(--accent);
-            font-size: 0.8rem;
-        }
-
-        /* --- CONTACT --- */
-        .contact { text-align: center; max-width: 600px; margin: 0 auto; padding: 100px 20px; }
-        .contact h2 { font-size: 3rem; color: #e6f1ff; margin-bottom: 20px; }
-        .contact p { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 50px; }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .hero, section { padding: 80px 25px; }
-            .hero h1 { font-size: 3rem; }
-            .hero h2 { font-size: 2.5rem; }
-            nav { padding: 20px; }
-            .nav-links { display: none; } /* Hide links on mobile for simplicity */
-        }
+        /* Footer */
+        footer { text-align: center; color: #8892b0; font-size: 0.9rem; margin-top: 50px; }
     </style>
 </head>
 <body>
 
     <nav>
         <div class="logo">GK.</div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Work</a>
-            <a href="#contact">Contact</a>
+        <div>
+            <a href="mailto:gowthamkatari64@gmail.com" class="btn">Contact Me</a>
         </div>
     </nav>
 
     <section class="hero">
-        <h4>Hi, my name is</h4>
+        <p style="color: var(--accent);">Hi, my name is</p>
         <h1>Gowtham K.</h1>
-        <h2 id="typewriter">I build scalable ML Platforms.</h2>
-        <p>
-            MLOps Platform Engineer and GCP-certified professional specializing in architecting end-to-end ML pipelines on cloud infrastructure. I bridge the gap between Data Science and Operations.
-        </p>
-        <a href="#contact" class="btn">Get In Touch</a>
-    </section>
-
-    <section id="about">
-        <h2 class="section-title"><span>01.</span> Technical Arsenal</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <div class="skill-header"><i class="fas fa-cogs"></i> MLOps & Orchestration</div>
-                <div class="skill-tags">
-                    <span class="tag">Vertex AI</span>
-                    <span class="tag">Kubeflow</span>
-                    <span class="tag">TFX</span>
-                    <span class="tag">MLflow</span>
-                    <span class="tag">Airflow</span>
-                    <span class="tag">Docker</span>
-                    <span class="tag">Kubernetes</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <div class="skill-header"><i class="fas fa-cloud"></i> Cloud & DevOps</div>
-                <div class="skill-tags">
-                    <span class="tag">GCP</span>
-                    <span class="tag">Cloud Build</span>
-                    <span class="tag">Artifact Registry</span>
-                    <span class="tag">IAM</span>
-                    <span class="tag">Terraform</span>
-                    <span class="tag">GitHub Actions</span>
-                    <span class="tag">Bash</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <div class="skill-header"><i class="fas fa-brain"></i> Machine Learning</div>
-                <div class="skill-tags">
-                    <span class="tag">TensorFlow</span>
-                    <span class="tag">Scikit-learn</span>
-                    <span class="tag">Feature Stores</span>
-                    <span class="tag">A/B Testing</span>
-                    <span class="tag">Skew Checks</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <div class="skill-header"><i class="fas fa-database"></i> Data Engineering</div>
-                <div class="skill-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">SQL</span>
-                    <span class="tag">BigQuery</span>
-                    <span class="tag">Snowflake</span>
-                    <span class="tag">Data Lineage</span>
-                </div>
-            </div>
-        </div>
+        <h2>I build scalable ML Platforms.</h2>
+        <p>MLOps Platform Engineer and GCP-certified professional specializing in architecting end-to-end ML pipelines on cloud infrastructure.</p>
+        <br>
+        <a href="#projects" class="btn">Check out my work</a>
     </section>
 
     <section id="experience">
-        <h2 class="section-title"><span>02.</span> Where I've Worked</h2>
-        <div class="timeline">
-            
-            <div class="job-card">
-                <div class="job-content">
-                    <div class="job-header">
-                        <span class="job-title">MLOps Platform Engineer <span class="company">@ IGUS Inc.</span></span>
-                        <span class="date">Apr 2024 – Present</span>
-                    </div>
-                    <ul class="job-details">
-                        <li>Architected a cloud-based MLOps platform for supply-chain forecasting on GCP, cutting deployment lead time by ~40%.</li>
-                        <li>Designed modular workflows using Vertex AI/Kubeflow pipeline patterns with Docker containerization.</li>
-                        <li>Implemented CI/CD using Cloud Build & Git, reducing manual release effort.</li>
-                        <li>Managed GCP infrastructure provisioning using Terraform enforcing least-privilege security.</li>
-                        <li>Integrated data lineage tracking using Vertex ML Metadata.</li>
-                    </ul>
-                </div>
-            </div>
+        <h3>01. Experience</h3>
+        
+        <div class="job-card">
+            <div class="job-title">MLOps Platform Engineer @ IGUS Inc.</div>
+            <span class="job-date">Apr 2024 – Present</span>
+            <ul>
+                <li>Architected cloud-based MLOps platform for supply-chain forecasting on GCP.</li>
+                <li>Designed modular workflows using Vertex AI/Kubeflow pipeline patterns.</li>
+                <li>Implemented CI/CD using Cloud Build & Git, reducing manual release effort.</li>
+            </ul>
+        </div>
 
-            <div class="job-card">
-                <div class="job-content">
-                    <div class="job-header">
-                        <span class="job-title">Data Engineer & ML Infra <span class="company">@ Wipro Limited</span></span>
-                        <span class="date">May 2022 – Jul 2023</span>
-                    </div>
-                    <ul class="job-details">
-                        <li>Engineered robust ETL and ML-ready data pipelines for financial-services clients.</li>
-                        <li>Built a centralized feature layer on BigQuery/Snowflake reducing training-serving skew.</li>
-                        <li>Embedded data validation checks achieving ~99.5% usable data for ML.</li>
-                        <li>Partnered with DevOps to introduce version control and CI steps for analytics code.</li>
-                    </ul>
-                </div>
-            </div>
-
+        <div class="job-card">
+            <div class="job-title">Data Engineer @ Wipro Limited</div>
+            <span class="job-date">May 2022 – Jul 2023</span>
+            <ul>
+                <li>Engineered robust ETL and ML-ready data pipelines for financial clients.</li>
+                <li>Built centralized feature layers on BigQuery/Snowflake reducing skew.</li>
+                <li>Embedded data validation checks achieving ~99.5% usable data.</li>
+            </ul>
         </div>
     </section>
 
     <section id="projects">
-        <h2 class="section-title"><span>03.</span> Architecture & Projects</h2>
-        <div class="projects-grid">
+        <h3>02. Projects</h3>
+        <div class="grid">
+            <div class="card">
+                <i class="far fa-folder" style="color: var(--accent); font-size: 2rem; margin-bottom: 15px;"></i>
+                <h4>Vertex AI Credit Risk</h4>
+                <p>End-to-end credit-risk scoring workflow on GCP using Vertex AI Pipelines with automated ingestion and evaluation.</p>
+                <div class="tech-stack">GCP VertexAI Docker Python</div>
+            </div>
             
-            <div class="project-card">
-                <div class="folder-icon"><i class="far fa-folder"></i></div>
-                <h3 class="project-title">Vertex AI Credit Risk Scoring</h3>
-                <div class="arch-viz">
-                    <i class="fas fa-project-diagram"></i> &nbsp; [Pipeline Architecture Diagram]
-                </div>
-                <p class="project-desc">Designed an end-to-end credit-risk scoring workflow on GCP using Vertex AI Pipelines. Automated ingestion, training, and evaluation with rollback strategies.</p>
-                <div class="project-tech">
-                    <span>GCP</span>
-                    <span>Vertex AI</span>
-                    <span>Docker</span>
-                    <span>Python</span>
-                </div>
+            <div class="card">
+                <i class="far fa-folder" style="color: var(--accent); font-size: 2rem; margin-bottom: 15px;"></i>
+                <h4>Supply Chain Pipelines</h4>
+                <p>Demand-forecasting ML workflow using Kubeflow. Parameterized pipelines for different product groups.</p>
+                <div class="tech-stack">Kubeflow BigQuery CI/CD</div>
             </div>
 
-            <div class="project-card">
-                <div class="folder-icon"><i class="far fa-folder"></i></div>
-                <h3 class="project-title">Supply Chain Forecasting</h3>
-                <div class="arch-viz">
-                    <i class="fas fa-network-wired"></i> &nbsp; [CI/CD Flow Diagram]
-                </div>
-                <p class="project-desc">Architected a demand-forecasting ML workflow using Kubeflow. Parameterized pipelines for different product groups, enabling reuse and faster experimentation.</p>
-                <div class="project-tech">
-                    <span>Kubeflow</span>
-                    <span>BigQuery</span>
-                    <span>CI/CD</span>
-                </div>
+            <div class="card">
+                <i class="far fa-folder" style="color: var(--accent); font-size: 2rem; margin-bottom: 15px;"></i>
+                <h4>Fraud MLOps Framework</h4>
+                <p>Reference framework for fraud detection with emphasis on governance, versioning, and explainability.</p>
+                <div class="tech-stack">Airflow MLflow SQL</div>
             </div>
-
-            <div class="project-card">
-                <div class="folder-icon"><i class="far fa-folder"></i></div>
-                <h3 class="project-title">Governance Fraud MLOps</h3>
-                <div class="arch-viz">
-                    <i class="fas fa-shield-alt"></i> &nbsp; [Governance Framework]
-                </div>
-                <p class="project-desc">Developed a reference MLOps framework for fraud detection with emphasis on governance, model versioning, and explainability for audit requirements.</p>
-                <div class="project-tech">
-                    <span>Airflow</span>
-                    <span>MLflow</span>
-                    <span>SQL</span>
-                    <span>Power BI</span>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <section>
-        <h2 class="section-title"><span>04.</span> Certifications</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 15px;">
-            <div style="border: 1px solid var(--accent); padding: 10px 20px; border-radius: 5px; color: var(--accent);">GCP Associate Cloud Engineer</div>
-            <div style="border: 1px solid var(--accent); padding: 10px 20px; border-radius: 5px; color: var(--accent);">Generative AI Mastermind</div>
-            <div style="border: 1px solid var(--accent); padding: 10px 20px; border-radius: 5px; color: var(--accent);">Google Analytics</div>
-            <div style="border: 1px solid var(--text-secondary); padding: 10px 20px; border-radius: 5px; color: var(--text-secondary);">ML Specialization (Coursera)</div>
-        </div>
-    </section>
+    <footer>
+        <p>Built by Gowtham K.</p>
+    </footer>
 
-    <section id="contact" class="contact">
-        <h4>05. What’s Next?</h4>
-        <h2>Get In Touch</h2>
-        <p>I am currently based in Toronto and looking for opportunities to deploy scalable AI solutions. Whether you have a question or just want to say hi, my inbox is open!</p>
-        <a href="mailto:gowthamkatari64@gmail.com" class="btn">Say Hello</a>
-        <br><br>
-        <p style="font-size: 0.9rem;">+1 (437) 661-1713</p>
-    </section>
-
-    <script>
-        const textElement = document.getElementById("typewriter");
-        const texts = ["I build scalable ML Platforms.", "I operationalize AI.", "I automate Data Lifecycles."];
-        let count = 0;
-        let index = 0;
-        let currentText = "";
-        let letter = "";
-
-        (function type() {
-            if (count === texts.length) {
-                count = 0;
-            }
-            currentText = texts[count];
-            letter = currentText.slice(0, ++index);
-
-            textElement.textContent = letter;
-            if (letter.length === currentText.length) {
-                setTimeout(() => {
-                    // Quick pause before deleting could go here, but for simplicity we just restart logic
-                    count++;
-                    index = 0;
-                }, 2000);
-            }
-            setTimeout(type, 150);
-        }());
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
